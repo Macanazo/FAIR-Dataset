@@ -3,8 +3,8 @@
 
 from pyshacl import validate
 
-data_file = 'data_final.ttl'
-shacl_file = 'shacl_final.ttl'
+data_file = 'data/data_final.ttl'
+shacl_file = 'metadata/shacl_final.ttl'
 
 conforms, results_graph, results_text = validate(
     data_file,
@@ -17,4 +17,5 @@ conforms, results_graph, results_text = validate(
 )
 
 print(conforms)
+
 print(results_text)
