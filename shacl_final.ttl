@@ -1,0 +1,152 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ex: <http://example.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# --------------------------
+# Transaction NodeShape
+# --------------------------
+ex:TransactionShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Transaction ;
+    
+    sh:property [
+        sh:path dct:identifier ;
+        sh:datatype xsd:int ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    
+    sh:property [
+        sh:path ex:hasProduct ;
+        sh:node ex:ProductShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    
+    sh:property [
+        sh:path ex:hasPayment ;
+        sh:node ex:PaymentShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    
+    sh:property [
+        sh:path ex:hasCustomer ;
+        sh:node ex:CustomerShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    
+    sh:property [
+        sh:path dct:date ;
+        sh:datatype xsd:dateTime  ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    
+    sh:property [
+        sh:path schema:continent ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    
+    sh:property [
+        sh:path ex:quantitySold ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:minInclusive 0 ;
+    ] .
+
+# --------------------------
+# Product NodeShape
+# --------------------------
+ex:ProductShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Product ;
+    
+    sh:property [
+        sh:path dct:identifier ;
+        sh:datatype xsd:int ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    
+    sh:property [
+        sh:path dct:subject ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ("Electronics" "Accessories") ;
+    ] .
+
+# --------------------------
+# Customer NodeShape
+# --------------------------
+ex:CustomerShape
+    a sh:NodeShape ;
+    sh:targetClass foaf:Person ;
+    
+    sh:property [
+        sh:path foaf:age ;
+        sh:datatype xsd:int ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    
+    sh:property [
+        sh:path foaf:gender ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    
+    sh:property [
+        sh:path foaf:membershipClass ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ("Regular" "Premium") ;
+    ] .
+
+# --------------------------
+# Payment NodeShape
+# --------------------------
+ex:PaymentShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Payment ;
+    
+    sh:property [
+        sh:path schema:price ;
+        sh:datatype xsd:double ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:minInclusive 0 ;
+    ] ;
+    
+    sh:property [
+        sh:path schema:discount ;
+        sh:datatype xsd:double ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 1 ;
+    ] ;
+    
+    sh:property [
+        sh:path schema:paymentMethod ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ("PayPal" "Bank Transfer" "Credit Card" "Debit Card") ;
+    ] .
