@@ -1,0 +1,58 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.com/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+# TODO: fix the raw git links with redirection rules to actual files using the w3id
+
+# Dataset
+
+ex:dataset/ecommerce-sales
+    a dcat:Dataset ;
+    dct:title "E-Commerce Sales" ;
+    dct:description "Transactional data with products, customers, and payments from an E-commerce website." ;
+    dct:creator ex:Group7 ;
+    dct:issued "2025-10-18"^^xsd:date ;
+    dct:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dct:conformsTo <https://raw.githubusercontent.com/Macanazo/FAIR-Dataset/refs/heads/main/metadata/shacl_final.ttl> # fix this uri with redirection rules to the raw file
+    dcat:keyword "Transactions", "Products", "Customers", "Payments", "Ecommerce" ;
+    dcat:distribution ex:dist/ecommerce-rdf, ex:dist/ecommerce-csv ;
+    prov:wasGeneratedBy ex:activity/openrefine ;
+    prov:wasAttributedTo ex:Group7 .
+
+# Creator
+
+ex:Group7
+    a foaf:Organization ;
+    foaf:name "Group 7 — FAIR Course 2025-26" .
+
+# Distributions
+
+ex:dist/ecommerce-rdf
+    a dcat:Distribution ;
+    dct:title "RDF version of E-Commerce Sales dataset" ;
+    dcat:mediaType "text/turtle" ;
+    dcat:format "ttl" ;
+    dcat:downloadURL <http://example.com/data/ecommerce_sales.ttl> ; # replace with real uri
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> .
+
+ex:dist/ecommerce-csv
+    a dcat:Distribution ;
+    dct:title "CSV version of E-Commerce Sales dataset" ;
+    dcat:mediaType "text/csv" ;
+    dcat:format "csv" ;
+    dcat:downloadURL <https://raw.githubusercontent.com/Macanazo/FAIR-Dataset/refs/heads/main/Original%20dataset/ecommerce_sales_large.csv> ;
+    dct:license <https://opensource.org/licenses/MIT> .
+
+# Provenance
+
+ex:activity/openrefine
+    a prov:Activity ;
+    prov:used <https://raw.githubusercontent.com/Macanazo/FAIR-Dataset/refs/heads/main/Original%20dataset/ecommerce_sales_large.csv> ;
+    prov:startedAtTime "2025-10-01T00:00:00Z"^^xsd:dateTime ;
+    prov:endedAtTime   "2025-10-07T15:00:00Z"^^xsd:dateTime ;
+    prov:wasAssociatedWith ex:Group7 ;
+    prov:generated ex:dataset/ecommerce-sales .
