@@ -1,0 +1,49 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+
+<http://localhost:8080/distribution/4bf60bd6-4ecc-4900-bf0e-de5a922fba2c> a dcat:Resource,
+    dcat:Distribution;
+  <http://www.w3.org/2000/01/rdf-schema#label> "FAIRified Data";
+  dcterms:title "FAIRified Data";
+  dcat:version "1.0";
+  <https://w3id.org/fdp/fdp-o#metadataIssued> "2025-10-20T00:43:06.537766839Z"^^xsd:dateTime;
+  <https://w3id.org/fdp/fdp-o#metadataModified> "2025-10-20T00:43:06.537766839Z"^^xsd:dateTime;
+  dcterms:license <http://purl.org/NET/rdflicense/cc-zero1.0>;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en>;
+  <https://w3id.org/fdp/fdp-o#metadataIdentifier> <http://localhost:8080/distribution/4bf60bd6-4ecc-4900-bf0e-de5a922fba2c#identifier>;
+  dcterms:accessRights <http://localhost:8080/distribution/4bf60bd6-4ecc-4900-bf0e-de5a922fba2c#accessRights>;
+  dcterms:publisher [ a foaf:Agent;
+      foaf:name "Group 7"
+    ];
+  dcterms:isPartOf <http://localhost:8080/dataset/b9e346f8-82ef-406a-8a03-3aba9194ee12>;
+  <http://semanticscience.org/resource/SIO_000628> <http://localhost:8080/distribution/4bf60bd6-4ecc-4900-bf0e-de5a922fba2c/metrics/445c0a70d1e214e545b261559e2842f4>,
+    <http://localhost:8080/distribution/4bf60bd6-4ecc-4900-bf0e-de5a922fba2c/metrics/5d27e854a9e78eb3f663331cd47cdc13>;
+  dcterms:issued "2025-09-30T22:00:00Z"^^xsd:dateTime;
+  dcterms:modified "2025-10-06T22:00:00Z"^^xsd:dateTime;
+  dcat:byteSize "9.03 MB";
+  dcat:downloadURL <https://raw.githubusercontent.com/Macanazo/FAIR-Dataset/refs/heads/main/data/data_final.ttl>;
+  dcat:mediaType "text/turtle";
+  dcat:accessURL <https://github.com/Macanazo/FAIR-Dataset/tree/main/data>;
+  dcterms:conformsTo <http://localhost:8080/profile/02c649de-c579-43bb-b470-306abdc808c7> .
+
+<http://localhost:8080/distribution/4bf60bd6-4ecc-4900-bf0e-de5a922fba2c#identifier>
+  a <http://purl.org/spar/datacite/Identifier>;
+  dcterms:identifier "http://localhost:8080/distribution/4bf60bd6-4ecc-4900-bf0e-de5a922fba2c" .
+
+<http://localhost:8080/distribution/4bf60bd6-4ecc-4900-bf0e-de5a922fba2c#accessRights>
+  a dcterms:RightsStatement;
+  dcterms:description "This resource has no access restriction" .
+
+<http://localhost:8080/distribution/4bf60bd6-4ecc-4900-bf0e-de5a922fba2c/metrics/445c0a70d1e214e545b261559e2842f4>
+  <http://semanticscience.org/resource/SIO_000628> <https://www.ietf.org/rfc/rfc3986.txt>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.ietf.org/rfc/rfc3986.txt> .
+
+<http://localhost:8080/distribution/4bf60bd6-4ecc-4900-bf0e-de5a922fba2c/metrics/5d27e854a9e78eb3f663331cd47cdc13>
+  <http://semanticscience.org/resource/SIO_000628> <https://www.wikidata.org/wiki/Q8777>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.wikidata.org/wiki/Q8777> .
+
+<http://localhost:8080/profile/02c649de-c579-43bb-b470-306abdc808c7> <http://www.w3.org/2000/01/rdf-schema#label>
+    "Distribution Profile" .
