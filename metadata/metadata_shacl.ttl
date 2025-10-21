@@ -1,92 +1,93 @@
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ex: <http://example.com/> .
+@prefix :       <http://fairdatapoint.org/> .
+@prefix dash:   <http://datashapes.org/dash#> .
+@prefix dcat:   <http://www.w3.org/ns/dcat#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 
-# SHACL shape for Dataset
-ex:DatasetShape
-    a sh:NodeShape ;
-    sh:targetClass dcat:Dataset ;
-    sh:property [
-        sh:path dct:title ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        sh:path dct:creator ;
-        sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        sh:path dct:issued ;
-        sh:datatype xsd:date ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        sh:path dct:license ;
-        sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        sh:path dcat:distribution ;
-        sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        sh:path prov:wasGeneratedBy ;
-        sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-    ] .
+:DatasetShape a sh:NodeShape ;
+  sh:targetClass dcat:Dataset ;
 
-# SHACL shape for Distribution
-ex:DistributionShape
-    a sh:NodeShape ;
-    sh:targetClass dcat:Distribution ;
-    sh:property [
-        sh:path dct:title ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        sh:path dcat:mediaType ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        sh:path dcat:downloadURL ;
-        sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-    ] .
+  sh:property [
+    sh:path dct:title ;
+    sh:name "Dataset Title" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "A dataset title is required." ;
+    dash:editor dash:TextFieldEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 1 ;
+  ] ;
 
-# SHACL shape for Activity
-ex:ActivityShape
-    a sh:NodeShape ;
-    sh:targetClass prov:Activity ;
-    sh:property [
-        sh:path prov:used ;
-        sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        sh:path prov:startedAtTime ;
-        sh:datatype xsd:dateTime ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        sh:path prov:endedAtTime ;
-        sh:datatype xsd:dateTime ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        sh:path prov:wasAssociatedWith ;
-        sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        sh:path prov:generated ;
-        sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-    ] .
+  sh:property [
+    sh:path dct:description ;
+    sh:name "Dataset Description" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    dash:editor dash:TextAreaEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 2 ;
+  ] ;
+
+  sh:property [
+    sh:path dct:publisher ;
+    sh:name "Dataset Publisher" ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:node :FoafAgentShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Dataset must have a publisher" ;
+    dash:editor dash:NodeCreatorEditor ;
+    dash:viewer dash:DetailsViewer ;
+    sh:order 3 ;
+  ] ;
+
+  sh:property [
+    sh:path dct:created ;
+    sh:name "Creation Date" ;
+    sh:datatype xsd:dateTime ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Creation date is required and must be valid." ;
+    dash:editor dash:DateTimePickerEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 4 ;
+  ] ;
+
+  sh:property [
+    sh:path dcat:keyword ;
+    sh:name "Dataset Keywords" ;
+    sh:nodeKind sh:Literal ;
+    sh:maxCount 5 ;
+    dash:editor dash:TextFieldEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 5 ;
+  ] ;
+
+  sh:property [
+    sh:path dct:license ;
+    sh:name "Dataset License" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "A license IRI is required for the dataset." ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+    sh:order 6 ;
+  ] .
+
+:FoafAgentShape a sh:NodeShape ;
+  sh:targetClass foaf:Agent;
+  sh:property [
+    sh:path foaf:name ;
+    sh:name "Name" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Publisher must have a name." ;
+    dash:editor dash:TextFieldEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 1 ;
+  ] .
