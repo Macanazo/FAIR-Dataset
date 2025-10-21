@@ -1,0 +1,47 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+
+<http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8> a dcat:Resource,
+    dcat:Distribution;
+  <http://www.w3.org/2000/01/rdf-schema#label> "E-Commerce Transaction Data - Original";
+  dcterms:title "E-Commerce Transaction Data - Original";
+  dcat:version "1.0";
+  <https://w3id.org/fdp/fdp-o#metadataIssued> "2025-10-21T14:06:53.349432506Z"^^xsd:dateTime;
+  <https://w3id.org/fdp/fdp-o#metadataModified> "2025-10-21T14:08:48.138934788Z"^^xsd:dateTime;
+  dcterms:license <https://opensource.org/licenses/MIT>;
+  dcterms:description "Original CSV dataset of E-commerce transaction records";
+  dcterms:conformsTo <http://localhost:8080/profile/02c649de-c579-43bb-b470-306abdc808c7>,
+    <http://localhost:8080/profile/02c649de-c579-43bb-b470-306abdc808c7>;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en>;
+  <https://w3id.org/fdp/fdp-o#metadataIdentifier> <http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8#identifier>;
+  dcterms:accessRights <http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8#accessRights>;
+  dcterms:publisher [ a foaf:Agent;
+      foaf:name "Simranjit Khera"
+    ];
+  dcterms:isPartOf <http://localhost:8080/dataset/79443f9c-7f1c-4b72-8af3-17cd4cee86fa>;
+  <http://semanticscience.org/resource/SIO_000628> <http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8/metrics/445c0a70d1e214e545b261559e2842f4>,
+    <http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8/metrics/5d27e854a9e78eb3f663331cd47cdc13>;
+  dcat:downloadURL <http://w3id.org/FAIR-course-UT/2025/group7/originalData>;
+  dcat:mediaType "text/csv" .
+
+<http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8#identifier>
+  a <http://purl.org/spar/datacite/Identifier>;
+  dcterms:identifier "http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8" .
+
+<http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8#accessRights>
+  a dcterms:RightsStatement;
+  dcterms:description "This resource has no access restriction" .
+
+<http://localhost:8080/profile/02c649de-c579-43bb-b470-306abdc808c7> <http://www.w3.org/2000/01/rdf-schema#label>
+    "Distribution Profile", "Distribution Profile" .
+
+<http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8/metrics/445c0a70d1e214e545b261559e2842f4>
+  <http://semanticscience.org/resource/SIO_000628> <https://www.ietf.org/rfc/rfc3986.txt>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.ietf.org/rfc/rfc3986.txt> .
+
+<http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8/metrics/5d27e854a9e78eb3f663331cd47cdc13>
+  <http://semanticscience.org/resource/SIO_000628> <https://www.wikidata.org/wiki/Q8777>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.wikidata.org/wiki/Q8777> .
