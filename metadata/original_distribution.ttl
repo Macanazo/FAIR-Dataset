@@ -25,6 +25,8 @@
   <http://semanticscience.org/resource/SIO_000628> <http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8/metrics/445c0a70d1e214e545b261559e2842f4>,
     <http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8/metrics/5d27e854a9e78eb3f663331cd47cdc13>;
   dcat:downloadURL <http://w3id.org/FAIR-course-UT/2025/group7/originalData>;
+  dcat:accessURL <http://w3id.org/FAIR-course-UT/2025/group7/originalData> ;
+  dcat:format "CSV" ;
   dcat:mediaType "text/csv" .
 
 <http://localhost:8080/distribution/21326cd4-7bad-4b31-ab68-f52feee9b6d8#identifier>
