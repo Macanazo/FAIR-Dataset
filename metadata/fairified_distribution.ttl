@@ -27,6 +27,8 @@
   dcterms:issued "2025-09-30T22:00:00Z"^^xsd:dateTime;
   dcterms:modified "2025-10-18T22:00:00Z"^^xsd:dateTime;
   dcat:downloadURL <http://w3id.org/FAIR-course-UT/2025/group7/data>;
+  dcat:accessURL <http://w3id.org/FAIR-course-UT/2025/group7/data> ;
+  dcat:format "Turtle" ;
   dcat:mediaType "text/turtle" .
 
 <http://localhost:8080/distribution/aa609d23-159a-4ac2-945d-b775fab8956b#identifier>
