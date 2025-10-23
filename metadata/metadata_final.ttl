@@ -6,6 +6,7 @@
 
 <http://localhost:8080/dataset/79443f9c-7f1c-4b72-8af3-17cd4cee86fa> a dcat:Resource,
     dcat:Dataset;
+  dcterms:identifier "http://localhost:8080/dataset/79443f9c-7f1c-4b72-8af3-17cd4cee86fa";
   <http://www.w3.org/2000/01/rdf-schema#label> "E-Commerce Transaction Dataset";
   dcterms:title "E-Commerce Transaction Dataset";
   dcat:version "1.0";
