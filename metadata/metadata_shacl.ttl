@@ -10,6 +10,15 @@
   sh:targetClass dcat:Dataset ;
 
   sh:property [
+    sh:path dct:identifier ;
+    sh:name "Dataset Identifier" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "A dataset identifier is required." ;
+  ] ;
+
+  sh:property [
     sh:path dct:title ;
     sh:name "Dataset Title" ;
     sh:datatype xsd:string ;
