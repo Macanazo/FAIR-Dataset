@@ -10,6 +10,20 @@
   sh:targetClass dcat:Distribution ;
 
   sh:property [
+    sh:path dct:extent ;
+    sh:name "Number of Records" ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "The distribution must specify the number of records it contains." ;
+    dash:editor dash:TextFieldEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 19 ;
+] ;
+
+
+  sh:property [
     sh:path dct:issued ;
     sh:name "Issued Date" ;
     sh:datatype xsd:dateTime ;
